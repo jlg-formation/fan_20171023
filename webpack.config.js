@@ -10,7 +10,7 @@ module.exports = {
 		filename: '[name].js',
 		path: path.resolve(__dirname, './app/wpk')
 	},
-	
+
 	module: {
 		rules: [{
 			test: /\.js$/,
@@ -30,6 +30,14 @@ module.exports = {
 				fallback: 'style-loader',
 				use: 'css-loader?minimize&sourceMap!sass-loader?sourceMap'
 			})
+		}, {
+			test: /\.html$/,
+			use: [{
+				loader: 'html-loader',
+				options: {
+					minimize: true
+				}
+			}],
 		}]
 	},
 	devtool: 'source-map',
