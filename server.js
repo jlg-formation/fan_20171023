@@ -3,10 +3,17 @@
 const express = require('express'); // charge ExpressJS
 const serveIndex = require('serve-index');
 
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.config.js');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+
 const app = express();
 
-app.use(express.static('.'));
+webpackConfig.output.path = '/';
+const compiler = webpack(webpackConfig);
+app.use('/app/wpk/', webpackDevMiddleware(compiler, {}));
 
+app.use(express.static('.'));
 app.use(serveIndex('.', { icons: true }));
 
 app.use(function (req, res, next) {

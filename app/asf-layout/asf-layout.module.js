@@ -2,7 +2,10 @@ import asfHeaderHtml from './tmpl/asf-header.html';
 
 angular.module('asf-layout', [])
 	.component('asfHeader', {
-		template: asfHeaderHtml
+		template: asfHeaderHtml,
+		controller: function() {
+			console.log('ok');
+		}
 	})
 	.directive('asfBody', function () {
 		return {
