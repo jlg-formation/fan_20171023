@@ -3,7 +3,9 @@
 
 	angular.module('asf-layout', [])
 		.component('asfHeader', {
-			templateUrl: './asf-layout/tmpl/asf-header.html'
+			template: `headerx
+			<hr>
+			`
 		})
 		.directive('asfBody', function () {
 			return {
