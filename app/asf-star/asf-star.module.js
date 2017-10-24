@@ -3,11 +3,16 @@ angular.module('asf-star', [])
 		return {
 			restrict: 'E',
 			scope: {
-				n: '=note'
+				n: '=?note'
 			},
-			controller: function AsfStarCtrl($scope, $element, $attrs) {
+			controller: function AsfStarCtrl($scope, $element, $compile) {
 				'ngInject';
 				console.log('AsfStarCtrl start', this, arguments);
+
+				$scope.update = newNote => {
+					console.log('update ', newNote, this);
+					$scope.n = newNote;
+				};
 
 				$scope.$watch('n', function () {
 					let html = '';
@@ -18,15 +23,16 @@ angular.module('asf-star', [])
 
 					for (let i = 0; i < note; i++) {
 						html += `
-						<img src="./asf-star/img/yellow_star.png">
+						<img ng-click="update(${i + 1})" src="./asf-star/img/yellow_star.png">
 						`;
 					}
 					for (let i = note; i < 5; i++) {
 						html += `
-						<img src="./asf-star/img/white_star.png">
+						<img ng-click="update(${i + 1})" src="./asf-star/img/white_star.png">
 						`;
 					}
 					$element.html(html);
+					$compile($element.contents())($scope);
 				});
 			}
 		};
