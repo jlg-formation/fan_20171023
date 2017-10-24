@@ -2,11 +2,14 @@ angular.module('asf-star', [])
 	.directive('asfStar', function () {
 		return {
 			restrict: 'E',
-			controller: function AsfStarCtrl($element) {
+			scope: {
+				n: '=note'
+			},
+			controller: function AsfStarCtrl($scope, $element, $attrs) {
 				'ngInject';
 				console.log('AsfStarCtrl start', this, arguments);
 				let html = '';
-				let note = 3;
+				let note = $scope.n || 3;
 				for (let i = 0; i < note; i++) {
 					html += `
 					<img src="./asf-star/img/yellow_star.png">
