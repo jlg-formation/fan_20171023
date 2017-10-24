@@ -1,4 +1,8 @@
 $primaryColor:transparent;
 body {
-    background-color: $primaryColor;
+	background-color: $primaryColor;
+}
+
+[ng-click] {
+	cursor: pointer;
 }
