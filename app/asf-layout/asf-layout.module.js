@@ -4,7 +4,8 @@ angular.module('asf-layout', [])
 	.component('asfHeader', {
 		template: asfHeaderHtml,
 		controller: function() {
-			console.log('ok');
+			console.log('ok flo');
+			console.log('ttt');
 		}
 	})
 	.directive('asfBody', function () {
