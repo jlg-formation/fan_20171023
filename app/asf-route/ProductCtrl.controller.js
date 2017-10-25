@@ -12,6 +12,11 @@ export const ProductCtrl = function($http,$q) {
                 $http.get('../ws/s3'),
                 $http.get('../ws/s4'),
             ]);
+		}).then(responses => {
+            console.log('responses', responses);
+            return $http.get('../ws/s6');
+		}).then(response => {
+            console.log('response', response);           
 		}).catch(error => {
 			console.error('error', error);
 		});
