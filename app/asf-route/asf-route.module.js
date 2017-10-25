@@ -4,7 +4,8 @@ import servicesHtml from './tmpl/services.html';
 import contactHtml from './tmpl/contact.html';
 
 angular.module('asf-route', ['ui.router'])
-	.config(function($stateProvider, $urlRouterProvider) {
+	.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+		$locationProvider.html5Mode(true);
 		$stateProvider.state({
 			name: 'home',
 			url: '/',

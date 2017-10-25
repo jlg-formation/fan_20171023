@@ -16,13 +16,17 @@ app.use('/app/wpk/', webpackDevMiddleware(compiler, {}));
 app.use(express.static('.'));
 app.use(serveIndex('.', { icons: true }));
 
-app.use(function (req, res, next) {
+app.use('/app/', function(req, res, next) {
+	res.sendfile(__dirname + '/app/index.html');
+});
+
+app.use(function(req, res, next) {
 	console.log('404: Page not Found', req.url);
 	next();
 });
 
 const port = 9000;
 
-app.listen(port, function () {
+app.listen(port, function() {
 	console.log('server started on port ' + port);
 });
