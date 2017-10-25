@@ -43,11 +43,11 @@ module.exports = {
 	devtool: 'source-map',
 	plugins: [
 		new ExtractTextPlugin('[name].css'),
-		new webpack.optimize.UglifyJsPlugin({
-			sourceMap: true,
-			uglifyOptions: {
-				warnings: false,
-			}
-		})
+		// new webpack.optimize.UglifyJsPlugin({
+		// 	sourceMap: true,
+		// 	uglifyOptions: {
+		// 		warnings: false,
+		// 	}
+		// })
 	]
 };

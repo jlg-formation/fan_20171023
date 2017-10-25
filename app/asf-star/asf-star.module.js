@@ -5,6 +5,7 @@ angular.module('asf-star', [])
 		bindings: {
 			n: '=?note'
 		},
-		controller: AsfStarCtrl
+		controller: 'AsfStarCtrl'
 
-	});
+	})
+	.controller( 'AsfStarCtrl', AsfStarCtrl);

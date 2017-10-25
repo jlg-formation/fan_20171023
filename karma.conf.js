@@ -1,3 +1,5 @@
+const webpackConfig = require('./webpack.config.js');
+
 module.exports = function(config) {
 	'use strict';
 
@@ -6,11 +8,17 @@ module.exports = function(config) {
 		basePath: '.',
 
 		files: [
-		'node_modules/angular/angular.js',
+			'test/unit/AsfStarCtrl.controller.test.js',
 		],
+
+		preprocessors: {
+			'test/unit/*.test.js': ['webpack']
+		},
+
+		webpack: webpackConfig,
 
 		autoWatch: true,
 		frameworks: ['jasmine'],
-		browsers: ['Firefox', 'Chrome'],
+		browsers: ['PhantomJS'],
 	});
 };
